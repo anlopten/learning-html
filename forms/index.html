@@ -43,10 +43,36 @@
                 <label for="mail">Email: </label>
                 <input type="email" name="mail" placeholder="tu email">
             </li>
-        </ul>
+    <h3>Otros elementos</h3>
+        <li>
+        <label for="estimation">Estimacion: </label>
+        <select name="estimation">
+            <option value="1">XS</option>
+            <option value="2">S</option>
+            <option value="3">M</option>
+            <option value="4">L</option>
+            <option value="8">XL</option>
+        </select>
+        </li>
+        <li>
+            <label for="payment">Tipo de pago: </label>
+            <input name="payment" type="radio" value="credit card"> Tarjeta de credito </input>
+            <input name="payment" type="radio" value="paypal"> Tarjeta de credito </input>
+            <input name="payment" type="radio" value="bank-transfer"> Transferencia bancaria </input>
+        </li>
+        <li>
+            <label for="contact">Contacto: </label>
+            <input name="contact" type="checkbox" value="email"> Correo electronico </input>
+            <input name="contact" type="checkbox" value="SMS"> Mensaje SMS </input>
+            <input name="contact" type="checkbox" value="llamada"> Llamada telefonica </input>
+        </li>
+    
+    </ul>
+
         <button type="submit">Enviar</button>
         <button type="reset">Limpiar</button>
     </form>
+
     
 </body>
 </html>
