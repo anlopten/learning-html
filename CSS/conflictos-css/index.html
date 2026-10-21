@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflictos HTML</title>
+    <style>
+        div{
+            color: azure;
+        }
+        .custom{
+            color:darkgreen;
+        }
+        #custom{
+            color:darkgreen;
+        }
+        .custom2{
+            color:lightseagreen;
+        }
+        p span{
+            color: aquamarine;
+        }
+        p {
+            color: rgb(60, 33, 82);
+        }
+    </style>
+</head>
+<body>
+    <nav><a href="../index.html">Volver atras</a></nav>
+    <div style="color: coral;">
+        Custom component
+    </div>
+    <div id="custom">
+        Custom component
+    </div>
+    <div class="custom2">
+        Custom component
+    </div>
+    <div class="custom custom2">
+        Custom component
+    </div>
+    <p> 
+        <span>
+            tomar cualquier valor!
+        </span> 
+    </p>
+</body>
+</html>
