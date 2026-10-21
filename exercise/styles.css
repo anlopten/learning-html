@@ -1,0 +1,156 @@
+*{
+    background-color: #FAF6F0;
+    line-height: 1.2;
+ }
+ /*
+nav{
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 10;
+    font-style:italic;
+    font-size: 1.5em;
+} */
+
+h1{
+   font-family: "Amatic SC", sans-serif;
+   font-size: 62px; 
+   color: #663304;
+   font-weight: 1000;
+   text-align: center;
+   }
+
+
+h2{
+   font-family: "Shadows Into Light", cursive;
+   font-size: 47px; 
+   color: #4A3E3D;
+   text-align: center;
+}
+h3{
+   font-family: "Amatic SC", sans-serif; 
+   font-size: 42px; 
+   color: #663304;
+   text-align: center;
+   }
+h4{
+    font-family: "Shadows Into Light", cursive;
+    font-size: 30px; 
+    font-weight: 190;
+    color: #4A3E3D;
+    /* text-align: center; */
+    margin: 0%;
+}
+
+.img-ppal{
+    display: block;
+    filter: drop-shadow(4px 4px 8px #838180);
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.img-pasos{
+    display: block;
+    filter: drop-shadow(4px 4px 8px #838180);
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+.pnormal{
+    font-family: "Kedebideri", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
+    color: #4A3E3D;
+    font-size: large;
+    max-width: 1000px;  
+    line-height: 1.2;
+    text-align: center; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.pnormal ul li {
+    margin-bottom: 10px; 
+}
+.ptable{
+    font-family: "Kedebideri", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
+    color: #4A3E3D;
+    font-size: large;
+    line-height: 1.2;
+    text-align: left;
+    margin: 0;
+}
+.ptable ul li {
+    margin-bottom: 10px; 
+}
+a{
+    color: #8F9E8B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover{
+    color: #D9A080;
+    text-decoration: underline; 
+}
+
+.btn-volver {
+  display: inline-block;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #29201f;             /* Marrón cacao para el texto */
+  background-color: #f3dfc1;    /* Fondo color trigo */
+  padding: 8px 18px;          /* Espacio interno para darle forma de botón */
+  margin-top: 15px;           /* Separación con el borde superior */
+  margin-left: 20px;          /* Separación con el borde izquierdo */
+  border-radius: 25px;        /* Bordes completamente redondeados y suaves */
+  text-decoration: none;      /* Quitamos el subrayado gris antiguo */
+  box-shadow: 0 2px 5px rgba(74, 62, 61, 0.1); /* Sombra muy sutil para dar relieve */
+  transition: all 0.3s ease;  /* Transición suave para el movimiento y color */
+}
+.btn-volver:hover {
+  background-color: #D9A080;   /* Cambia a Calabaza Pastel */
+  color: #FAF6F0;
+  box-shadow: 0 4px 10px rgba(74, 62, 61, 0.15); /* La sombra se suaviza al elevarse */
+}
+.bfixed{
+    position: fixed;
+    bottom: 0;
+    right: 0%;
+}
+div .tit{
+    background-color: transparent;
+    color: inherit;
+}
+div .tit:hover{
+    background-color: transparent;
+    color: inherit;
+}
+ul, ol{
+    display: inline-block;
+    text-align: left;
+    line-height: 1.3em;
+}
+
+
+
+.table1{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 150px 0px
+}
+
+.pelab {
+    font-family: "Kedebideri", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
+    color: #4A3E3D;
+    font-size: large;
+    max-width: 1000px;     
+    margin-left: auto;   
+    margin-right: auto;
+    margin-bottom: 40px;  
+}
