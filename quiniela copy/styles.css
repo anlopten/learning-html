@@ -1,0 +1,28 @@
+/* 
+COLORES
+Rojo (rejilla, números, bordes, barra de bloques)	#e8473f
+Fondo rosa de la rejilla	#f9cfca
+Rosa más claro (bloques pares)	#fbdcd8
+Fondo de las casillas 1 X 2	  #fff4f2
+Azul de textos (equipos, liga)	#2f6fb4
+Azul de la barra de título y borde de la liga	#4a86c5
+Texto de las reglas	#222222
+Marcas negras de lectura	#1c1c1c
+Fondo del boleto	#fdfdfb
+Fondo de la página	#cfcfcf
+Emblema de Loterías (rayas rojas y doradas, círculo azul)	#c0392b, #e8a33d, #3a5a9a
+-----------------------------------
+FUENTES
+Texto general (título, casillas, números, combinaciones, bloques): Arial. 
+En equipos, reglas y pleno uso "Arial Narrow", "Roboto Condensed", "Liberation Sans Narrow", Arial, sans-serif, 
+y además scaleX() para condensarlas. */
+
+
+ *{
+    background-color: #cfcfcf;
+ }
+ .logo1{
+    display: flex;
+    flex-direction: row;
+
+}
