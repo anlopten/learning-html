@@ -98,10 +98,11 @@
     </div>
     
     <h3>Tabla nutricional</h3>
+    <div class="ptable">   
     <table border="0" cellpadding="10"> 
         <!-- <caption>Valores nutricionales</caption> -->
         <tr> <td>
-        <table border="1" class="tabla-elegante">
+        <table border="1" class="table2">
         <tr>
             <th>Nutriente</th>
             <th>Toda la empanada</th>
@@ -149,12 +150,12 @@
         <img src="./images/empanada-nutriscore.png" width="500"></td>
     
     </table>
-    
+    </div>
 
 
 <h3 id="recommendations">Otras recomendaciones y enlaces de interés</h2>
 
-<div class="pnormal">
+<div class="pelab">
 <p>Si buscas inspiración para tus próximos platos tradicionales (siguiendo los principios de la Dieta Atlántica), estos portales y blogs de referencia combinan tradición y sabor:
     <ul>
         <li><a href="https://lacocinadefrabisa.lavozdegalicia.es/" target="_blank">La cocina de Fabrisa</a>: blog gallego donde su autora, Isabel, detalla recetas tradicionales de Galicia</li>
@@ -174,19 +175,27 @@
 
 <h3>Cuéntanos cómo ha ido</h2>
 
-<div class="pnormal">
-<p>Si has probado esta receta, cuéntanos qué tal te salió:</p>
+
+<p class="pnormal">Si has probado esta receta, cuéntanos cómo ha ido y qué nota le das a la receta:</p>
+<div class="pelab">
 <form action="/exercise/index.html" method="post">
     <label for="valoracion">Valoración: </label>
-        <select name="estimation">
-            <option value="1">1 estrella</option>
-            <option value="2">2 estrellas</option>
-            <option value="3">3 estrellas</option>
-            <option value="4">4 estrellas</option>
-            <option value="5">5 estrellas</option>
-        </select>
-    
+    <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1">★</label>
+</div>
+
     <br>
+<div class="pelab">
+
     <label for="comentarios">Escribe tus comentarios:</label>
     <br>
         <textarea 
@@ -196,19 +205,22 @@
         cols="60" 
         placeholder="Escribe tu mensaje aquí...">
         </textarea>
-
-<p>Si has llegado hasta aquí y quieres recibir por correo las últimas actualizaciones, suscríbete al Newsletter.</p>
-    
+    <button type="submit" class="btn-enviar">Enviar</button>
+</form>
+</div>
+<div class="nl-box">
+<p>Si además quieres recibir por correo las últimas actualizaciones, suscríbete al Newsletter.</p>
+ <form action="/exercise/index.html" method="post">   
         <ul> 
                 <li>
                 <label for="mail">Email: </label>
-                <input type="email" name="mail" placeholder="tu email">
+                <input type="email" name="mail">
             </li>
         </ul>
-        <button type="submit">Enviar</button>
-        <button type="reset">Limpiar</button>
-    </form>
-
+        <button type="submit" class="btn-enviar">Enviar</button>
+        
+</form>
+</div>
 </body>
 </div>
 <div class="btn-volver bfixed"><a href="#init-receta" class="tit">Ir al titulo</a></div>
