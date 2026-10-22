@@ -63,7 +63,7 @@ h4{
     font-weight: 400;
     font-style: normal;  
     color: #4A3E3D;
-    font-size: large;
+    font-size: 20.5px;
     max-width: 1000px;  
     line-height: 1.2;
     text-align: center; 
@@ -79,7 +79,7 @@ h4{
     font-weight: 400;
     font-style: normal;  
     color: #4A3E3D;
-    font-size: large;
+    font-size: 20.5px;
     line-height: 1.2;
     text-align: left;
     margin: 0;
@@ -112,15 +112,24 @@ a:hover{
   box-shadow: 0 2px 5px rgba(74, 62, 61, 0.1);
   transition: all 0.3s ease;  
 }
-.btn-volver:hover {
-  background-color: #D9A080;   /* Cambia a Calabaza Pastel */
+/* .btn-volver:hover {
+  background-color: #D9A080;  
   color: #FAF6F0;
-  box-shadow: 0 4px 10px rgba(74, 62, 61, 0.15); /* La sombra se suaviza al elevarse */
-}
+  box-shadow: 0 4px 10px rgba(74, 62, 61, 0.15); 
+} */
 .bfixed{
     position: fixed;
     bottom: 0;
     right: 0%;
+}
+.bflotantes {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;             
+    z-index: 1000;          
 }
 div .tit{
     background-color: transparent;
@@ -149,7 +158,7 @@ ul, ol{
     font-weight: 400;
     font-style: normal;  
     color: #4A3E3D;
-    font-size: large;
+    font-size: 20.5px;
     max-width: 1000px;     
     margin-left: auto;   
     margin-right: auto;
@@ -162,7 +171,7 @@ ul, ol{
     font-weight: 400;
     font-style: normal;  
     color: #4A3E3D;
-    font-size: large;
+    font-size: 20px;
     max-width: 1000px;     
     margin-left: auto;   
     margin-right: auto;
@@ -239,7 +248,21 @@ input[type="email"] {
   padding: 10px 14px;
   border: 1px solid #4A3E3D;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 20.5px;
   min-width: 220px;
   box-sizing: border-box;
+}
+footer{
+    display: inline-block;
+    font-family: "Shadows Into Light", cursive;
+    font-size: 1.3em;
+    font-size: 1.5em;
+    font-weight: 400;
+    background-color: #D9A080;  
+    color: #271f12;
+    box-shadow: 0 4px 10px rgba(74, 62, 61, 0.15);   
+    padding: 8px 18px;          
+    margin-top: 15px;           
+    margin-left: 20px;         
+    border-radius: 15px;        
 }
