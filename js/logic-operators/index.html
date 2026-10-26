@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Lógicos</title>
+    <script>
+        const edad=18;
+        const precio=50;
+
+        // Comparaciones
+
+        console.log(edad>18); 
+        console.log(edad>=18); 
+        console.log(precio<100); 
+        console.log(precio<=50); 
+
+        // Operadores lógicos
+        console.log(edad>18 && precio<100);  // && ambas condiciones se cumplen a la vez
+        console.log(edad>=18 || precio>100); // OR
+        console.log(!(edad>=18));  // Negacion
+
+        // Igualdad / Desigualdad
+        console.log(edad=="18"); //lo convierte a texto
+        console.log(edad!=7);
+
+        // Igualdad / Desigualdad estricta
+        console.log(precio===50); 
+        console.log(precio!==50);
+        console.log(precio==="50"); // aquí es falso porque los tipos no coinciden
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+</body>
+</html>
