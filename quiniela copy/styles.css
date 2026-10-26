@@ -18,11 +18,185 @@ En equipos, reglas y pleno uso "Arial Narrow", "Roboto Condensed", "Liberation S
 y además scaleX() para condensarlas. */
 
 
- *{
+ /* *{
     background-color: #cfcfcf;
- }
- .logo1{
+   } */
+body { 
+   background: #ffffff; 
+   display: flex; 
+   flex-direction: column;
+   justify-content: center; 
+   padding: 20px; 
+   font-family: "Roboto Condensed","Arial Narrow",  "Liberation Sans Narrow", Arial,sans-serif; 
+   }
+.page { 
+   position: relative; width: 1257px; height: 825px; background: #fdfdfb; overflow: hidden; 
+   }
+.abs { 
+   position: absolute; 
+   }
+.boleto-header {
+    width: 100%;
+    max-width: 1256px;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 215px 1fr 235px; 
+    align-items: center;
+    gap: 20px;
+   }
+.logo{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   }
+.logo img{
+   max-width: 100%;
+   height:auto;
+}
+.cab-centro{
+   display: flex;
+   flex-direction: column;
+}
+.sencillo{
+   background-color: #589ec7; 
+   color: #ffffff;
+   display: flex;
+   justify-content: center;
+   gap: 90px;
+   align-items: center;
+   padding: 8px 30px;
+   border-radius: 2px;
+   font-family: ;
+   font-weight: 500;
+}
+.title1{
+   font-size: 27px;
+   letter-spacing: 1px;
+   text-align: center;
+}
+.num_bol{
+   font-size: 26px;
+}
 
+
+.instructions{
+   color: #222121;
+   font-size: 13px;
+   line-height: 1.25;
+   padding: 6px 0 6px 2px;
+}
+.instructions strong{
+   font-weight: 400;
+   display: inline-block;
+   width: 72px;
+}
+.liga-row{
+   border: 2px solid #589ec7;
+   border-radius: 0;
+   display: grid;
+   grid-template-columns: 1fr 0.5fr auto;
+   padding: 4px 14px;
+   align-items: center;
+   font-size: 14px;
+   font-weight: 500;
+   font-size: 16px;
+   color: #589ec7;
+}
+.info-box{
+   padding: 0px;
+   border: none;
+   !important;
+}
+.info-box.liga { font-size: 25px; }
+.info-box span{
+   color: #589ec7;
+   font-size: 16px;
+   margin-right: 6px;
+}
+.info-box .date-info {
+   color: #589ec7;
+ }
+.boleto-body{
+   display: grid;
+   width: 100%;
+   max-width: 1256px;       
+   grid-template-columns: 300px 1fr 125px;
+   column-gap: 0;
+   grid-auto-rows: 39px;
+   position: relative;       /* para las marcas negras */
+   margin-top: 12px;
+}
+.rows{
+   display: contents;
+}
+.teamname{
+   display: flex;
+   align-items: center;
+   color: #589ec7;
+   font-size: 17px;
+   padding-right: 8px;
+}
+.teamname .dots{
+   flex: 1;
+   border-bottom: 2px dotted #589ec7;
+   margin: 0 6px;
+   letter-spacing: 0.2em; 
+   font-weight: 600;
+}
+.teamname .num{
+   font-size: 10px;
+}
+.prono{
+   display: grid;
+   grid-template-columns: repeat(8, 1fr);
+   background: #e8473f;
+}
+.bloque{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); 
+   align-items: center;
+   justify-items: center;
+}
+.combi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-left: 40px;      
+}
+.c {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 22px;
+  background: #fff;
+  border: 1px solid #e8473f;
+  color: #e8473f;
+  font-size: 15px;
+  line-height: 1;
+}
+.bloque:nth-child(even) { 
+   background: white; 
+}
+.cab-pron {
+  text-align: center;
+  letter-spacing: 1.2em;
+  color:  #e8473f;
+  border: 1px solid  #e8473f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cab-comb {
+  text-align: center;
+  color:  #e8473f;
+  font-size: 12px;
+  margin-left: 40px;
+  border: 1px solid  #e8473f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
