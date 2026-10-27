@@ -257,16 +257,39 @@ body{
 /* ===== PLENO AL 15 ===== */
 .rows.pleno > *{ height: 39px; }
 
-.pleno-izq{
-   position: relative;
+.pleno-izq {
+   position: relative;        /* Permite posicionar elementos respecto a esta caja */
    display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding-right: 14px;
+   align-items: center;       /* Centra verticalmente el título */
+   justify-content: flex-end; /* Empuja el título "PLENO AL 15" hacia la derecha */
+   width: 300px;              /* El ancho fijo de tu primera columna */
+   height: 39px;
+   padding-right: 15px;       /* Margen antes de que empiecen los puntos del equipo */
+   box-sizing: border-box;
 }
-.pleno-titulo{ color: var(--rojo); font-size: 18px; white-space: nowrap; }
+main.boleto-body .rows.pleno .pleno-izq span.pleno-titulo { 
+   color: var(--rojo) !important; 
+   font-size: 22px !important; /* <--- Cambia este número para probar (ej: 22px o 24px) */
+   font-weight: 400; !important;
+   white-space: nowrap !important;
+   display: inline-block !important;
+}
 
-.bienmal{
+/* Cuadrado negro de la esquina izquierda */
+.pleno-izq::before{
+   content: "";
+   position: absolute;
+   left: -16px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 26px;
+   height: 26px;
+   background: #222;
+   border: 1px solid var(--rojo);
+   box-shadow: inset 0 0 0 3px #ffffff; 
+}
+
+/* .bienmal{
    display: flex;
    align-items: center;
    gap: 4px;
@@ -282,47 +305,46 @@ body{
    color: var(--azul);
    border-color: var(--azul);
 }
-.bienmal .c.mal{ transform: rotate(10deg); }
+.bienmal .c.mal{ transform: rotate(10deg); } */
 
-.pleno-centro{
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   column-gap: 40px;
-   align-items: center;
-}
-.pleno-equipo{
+
+.bienmal {
    display: flex;
-   align-items: center;
-   gap: 4px;
+   flex-direction: column;    /* CAMBIO: Organiza los elementos hacia abajo (en columna) */
+   align-items: flex-start;   /* Alinea las filas a la izquierda */
+   gap: 6px;                  /* Espacio vertical entre la fila de BIEN y la de MAL */
+   margin-left: 10px;         /* Reducido un poco para dar más espacio al título de al lado */
    color: var(--azul);
-   font-size: 18px;
+   font-size: 11px;           /* Un pelín más pequeña para que encaje perfectamente */
    text-transform: uppercase;
-   white-space: nowrap;
 }
-.pleno-equipo .dots{
-   flex: 1;
-   overflow: hidden;
-   white-space: nowrap;
-   margin: 0 4px;
-}
-.pleno-equipo .dots::after{
-   content: ". . . . . . . . . . . . . . . . . . . . . . . . ";
-   font-size: 22px;
-   letter-spacing: 2px;
-   line-height: 1;
-}
-.pleno-equipo .c{ width: 22px; height: 27px; font-size: 18px; }
 
-.pleno-der{
+/* NUEVO: Clase para que el texto y su casilla se alineen de lado a lado en cada piso */
+.bienmal-fila {
    display: flex;
    align-items: center;
-   margin-left: 40px;
-   color: var(--rojo);
-   font-size: 11px;
-   text-align: center;
-   line-height: 1.1;
+   gap: 6px;                  /* Espacio horizontal entre la palabra y su casilla */
 }
-.pleno-der .flecha{ width: 40px; }   /* queda bajo la columna izquierda de combinaciones (dobles) */
+
+/* Mantenemos tus estilos base de las casillas */
+.bienmal .c {
+   width: 22px;
+   height: 24px;
+   font-size: 16px;
+   color: var(--azul);
+   border: 1px solid var(--azul);
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Mantenemos tu rotación para la casilla de MAL */
+.bienmal .c.mal { 
+   transform: rotate(10deg); 
+}
+
+
+.pleno-equipo .c{ width: 22px; height: 27px; font-size: 18px; }
 
 /* ===== BLOQUES ===== */
 .rows.bloques > *{ height: 30px; align-self: center; }
@@ -366,24 +388,87 @@ body{
    top: -26px;
    width: 26px;
    height: 26px;
-   background: #222222;
-   border: 1px solid var(--rojo);
-   box-shadow: inset 0 0 0 3px #ffffff; 
-}
-/* Cuadrado negro de la esquina derecha */
-.bloques-izq{ position: relative; }
-.bloques-izq::before{
-   content: "";
-   position: absolute;
-   left: -22px;
-   top: 93%;
-   transform: translateY(-50%);
-   width: 24px;
-   height: 26px;
    background: #222;
    border: 1px solid var(--rojo);
    box-shadow: inset 0 0 0 3px #ffffff; 
 }
+
+.rows-pleno-container {
+   grid-column: 1 / -1; /* Rompe las 3 columnas principales y ocupa todo el ancho */
+   display: grid;
+   /* Repetimos exactamente el reparto de anchos del boleto general para que encaje */
+   grid-template-columns: 300px 790px 125px; 
+   align-items: center;
+   height: 39px;
+   border-bottom: 3px solid var(--rojo); /* Línea roja que separa el pleno de los bloques */
+}
+.pleno-izq {
+   display: flex;
+   align-items: center;
+   padding-left: 10px;
+}
+.pleno-titulo { 
+   color: var(--rojo); 
+   font-size: 18px; 
+   font-weight: bold;
+   white-space: nowrap; 
+}
+.pleno-centro {
+   display: grid;
+   /* Dividimos el espacio en dos partes iguales (una para cada equipo) */
+   grid-template-columns: 1fr 1fr; 
+   column-gap: 30px;
+   padding: 0 3px; /* Mismo padding lateral que usas en .prono para que se alineen los puntos */
+}
+
+/* Ajuste de cada equipo individual */
+.pleno-equipo {
+   display: flex;
+   align-items: center;
+   color: var(--azul);
+   font-size: 18px;
+   text-transform: uppercase;
+}
+
+.pleno-equipo .dots {
+   flex: 1;
+   overflow: hidden;
+   white-space: nowrap;
+   margin: 0 6px;
+   color: var(--azul);
+}
+.pleno-equipo .dots::after {
+   content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+   font-size: 22px;
+   letter-spacing: 2px;
+}
+
+/* Contenedor interno de las 4 casillas del pleno */
+.casillas-pleno {
+   display: flex;
+   gap: 4px; /* Separación idéntica a tus casillas superiores */
+}
+
+.casillas-pleno .c {
+   width: var(--cell);
+   height: var(--alto-c);
+   font-size: 18px;
+   color: var(--rojo);
+   border: 1px solid var(--rojo);
+}
+
+/* Columna Derecha: Texto e indicadores */
+.pleno-der {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--rojo);
+   font-size: 11px;
+   text-align: center;
+   line-height: 1.1;
+}
+
+
 
 .boleto-body{ grid-auto-rows: var(--fila); }
 .c{ height: var(--alto-c); }
