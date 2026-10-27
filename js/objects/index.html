@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos, Métodos y Atributos</title>
+    <script>
+        function objectsAndThis(){
+            const usuario= {
+                nombre: "Paqui",
+                rol: "administradora",
+                greetings: function() {
+                    console.log("Hola, soy ", this.nombre, " y mi rol es ", this.rol);
+                }
+            };
+        
+        usuario.greetings();
+        usuario.mostrarciudad = function(){
+            console.log("vivo en " + this.ciudad);
+        }
+        usuario.mostrarciudad();
+        function greetings2(val) {
+            console.log("Nombre: ",+this.nombre + " | Edad: " + this.edad + " | Numero por parametro: " + val);
+        }
+
+        const contacto1= {nombre: "Romualdo"};
+        contacto1.presentar = greetings2;
+        contacto1.presentar();
+
+        const contacto2= {
+            nombre: "Agripina",
+            edad: 28
+        };
+        contacto2.presentar=greetings2;
+        contacto2.presentar(9);
+
+        const alumno = {
+            nombre: "Federico",
+            edad: 44,
+            date: new Date()
+        }
+
+        greetings3(contacto2, 54);
+        greetings3(alumno, 54)
+        }
+        //////////////////////////////
+        function objectAlone(){
+            const homework = {
+                task: "Aprender sobre objetos",
+                dueDate: "2026/10/27",
+                showTask: function() {
+                    console.log("La tarea: ", this.task, " debe realizarse antes de ", this.dueDate);
+                }
+            };
+            console.log(homework.dueDate)
+            console.log(homework.task)
+            homework.task="Aprender sobre Astronomía"
+            console.log(homework.task)
+            homework.teacher="Pablo";
+            console.log(homework.teacher)
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+    <script>
+        objectsAndThis()
+        objectAlone()
+    </script>
+</body>
+</html>
