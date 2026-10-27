@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia</title>
+ <script>
+        class Vehicle{
+           constructor(brand){
+            this.brand=brand;
+           }
+           start(){
+            console.log(this.brand + " is starting");
+           }
+        }
+        class Car extends Vehicle {
+         getDesc(){
+          console.log(this.brand + " is ready");
+         }
+        }
+        
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+   <script>
+        let v=new Vehicle("Ford");
+        v.start();
+        c.getDesc();
+   </script>
+</body>
+</html>

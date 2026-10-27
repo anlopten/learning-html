@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Estáticos</title>
+ <script>
+        class Calc{
+            static sum(a,b){
+                return a+b;
+            }
+            substract(a,b){
+                return a-b;
+            }
+            multiply(a,b){
+                return a*b;
+            }
+            divide(a,b){
+                return a/b;
+            }
+            module(a,b){
+                return a%b;
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+   <script>
+    let calculator= new Calc();
+    console.log(Calc.sum(5,7))
+    // console.log(calculator.sum(5,7) -> esto da un error
+    console.log(calculator.substract(5,7))
+
+   </script>
+</body>
+</html>

@@ -100,7 +100,7 @@ a:hover{
 .btn-volver {
   display: inline-block;
   font-family: "Shadows Into Light", cursive;
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: 500;
   color: #29201f;            
   background-color: #f3dfc1;    
@@ -112,11 +112,7 @@ a:hover{
   box-shadow: 0 2px 5px rgba(74, 62, 61, 0.1);
   transition: all 0.3s ease;  
 }
-/* .btn-volver:hover {
-  background-color: #D9A080;  
-  color: #FAF6F0;
-  box-shadow: 0 4px 10px rgba(74, 62, 61, 0.15); 
-} */
+
 .bfixed{
     position: fixed;
     bottom: 0;
@@ -191,23 +187,15 @@ ul, ol{
 }
  .stars {
     display: flex;
+    gap: 50px;
     flex-direction: row-reverse; 
     justify-content: flex-end;
   }
-.stars input {
-    display: none;
-  }
+
 .stars label {
     font-size: 30px;
-    color:#4A3E3D;
-    cursor: pointer;
-    transition: color 0.2s;
+    color:#eca73f;
   }
-.stars input:checked ~ label,
-.stars label:hover,
-.stars label:hover ~ label {
-    color: #eca73f;
-}
 textarea {
   width: 100%;
   min-height: 120px;

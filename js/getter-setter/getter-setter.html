@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter-Setter</title>
+    <script>
+        class Car{
+            constructor(brand, model, speed){
+                this.brand=brand;
+                this.model=model;
+                this.speedToGo=speed;
+            }
+            get speed(){
+                return this.speedToGo;
+            }
+            get nextSpeed(){
+                return this.sspeedToGo+5;
+            }
+            set speed(value){
+                this.speed=value;
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+    <script>
+        let car = new Car ("Citroen","Xsara", 15);
+    </script>
+</body>
+</html>
