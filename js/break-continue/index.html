@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Continue</title>
+    <script>
+        function functionBreakContinue(val){
+            for(let i=0; i<val; i++){
+                if(i==2){
+                    console.log("Continue at iteration " +i);
+                    continue;
+                }
+                if(i==4){
+                    console.log("Break iteration at "+i);
+                    break;
+                }
+                if(i>=100){
+                    console.log("Break iteration at "+i);
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+    <script>
+        functionBreakContinue(6);
+    </script>
+
+</body>
+</html>
