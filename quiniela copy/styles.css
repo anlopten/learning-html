@@ -1,39 +1,18 @@
-/* 
-COLORES
-Rojo (rejilla, números, bordes, barra de bloques)	#e8473f
-Fondo rosa de la rejilla	#f9cfca
-Rosa más claro (bloques pares)	#fbdcd8
-Fondo de las casillas 1 X 2	  #fff4f2
-Azul de textos (equipos, liga)	#2f6fb4
-Azul de la barra de título y borde de la liga	#4a86c5
-Texto de las reglas	#222222
-Marcas negras de lectura	#1c1c1c
-Fondo del boleto	#fdfdfb
-Fondo de la página	#cfcfcf
-Emblema de Loterías (rayas rojas y doradas, círculo azul)	#c0392b, #e8a33d, #3a5a9a
------------------------------------
-FUENTES
-Texto general (título, casillas, números, combinaciones, bloques): Arial. 
-En equipos, reglas y pleno uso "Arial Narrow", "Roboto Condensed", "Liberation Sans Narrow", Arial, sans-serif, 
-y además scaleX() para condensarlas. */
+/* =========================================================
+   QUINIELA - styles.css
+   ========================================================= */
 
-
- /* *{
-    background-color: #cfcfcf;
-   } */
 :root{
    --rojo: #e77771;
    --azul: #589ec7;
-   --margen: 4px;     /* blanco que sobresale a cada lado del trío 1 X 2 */
-   --sep: 6px;        /* grosor del separador de grupo en pronósticos */
-   --cell: 26px;
-   --gap: 4px;
-   --trio: calc(var(--cell) * 3 + var(--gap) * 2);
-   --fila: 39px;
-   --alto-c: 29px;
-   --sep: calc((var(--fila) - var(--alto-c)) / 2);   /* = 5px */
+   --margen: 4px;
+   --cell: 26px;                 /* ancho de una casilla */
+   --gap: 4px;                   /* hueco entre casillas de un trío */
+   --trio: calc(var(--cell) * 3 + var(--gap) * 2);   /* 86px */
+   --fila: 39px;                 /* alto de cada fila */
+   --alto-c: 29px;               /* alto de una casilla */
+   --sep: calc((var(--fila) - var(--alto-c)) / 2);   /* 5px: línea de grupo */
 }
-
 
 body{
    background: #ffffff;
@@ -43,6 +22,24 @@ body{
    padding: 20px;
    font-family: "Roboto Condensed","Arial Narrow","Liberation Sans Narrow",Arial,sans-serif;
 }
+
+/* ===== HOJA (contenedor general) ===== */
+.sheet{
+   position: relative;
+   width: 100%;
+   max-width: 1256px;            /* mismo ancho que el header */
+}
+
+/* Barras rojas de los bordes de la hoja (filas de PLENO y BLOQUES) */
+.borde-sheet{
+   position: absolute;
+   bottom: 0;                        /* el final de .sheet coincide con el final de la fila de BLOQUES */
+   width: 8px;
+   height: calc(var(--fila));    /* 2 filas: pleno + bloques */
+   background: var(--rojo);
+}
+.borde-izq{ left: -20px; }
+.borde-der{ right: 0; }
 
 /* ===== HEADER ===== */
 .boleto-header{
@@ -101,7 +98,7 @@ body{
    max-width: 1256px;
    grid-template-columns: 300px 790px 125px;
    column-gap: 0;
-   grid-auto-rows: 39px;
+   grid-auto-rows: var(--fila);
    position: relative;
    margin-top: 12px;
    margin-left: 20px;
@@ -113,7 +110,8 @@ body{
    text-align: center;
    font-size: 20px;
    font-weight: 500;
-   letter-spacing: .98em;
+   letter-spacing: 1em;
+   width: var(--comb-w);
    color: var(--rojo);
    border: 3px solid var(--rojo);
    display: flex;
@@ -123,9 +121,10 @@ body{
 .cab-comb{
    text-align: center;
    color: var(--rojo);
-   font-size: 12px;
+   font-size: 15px;
    margin-left: 40px;
-   padding: 2px 8px;
+   letter-spacing: 0.5px;
+   /* padding: 2px 8px; */
    border: 1px solid var(--rojo);
    display: flex;
    align-items: center;
@@ -160,7 +159,7 @@ body{
 .rows.inicio > .teamname{ border-top: 3px solid var(--rojo); }
 .rows.fin    > .teamname{ border-bottom: 3px solid var(--rojo); }
 
-/* Marcas negras */
+/* Marcas negras de lectura */
 .rows.marca > .teamname::before{
    content: "";
    position: absolute;
@@ -176,30 +175,25 @@ body{
 .prono{
    position: relative;
    display: grid;
-   grid-template-columns: repeat(8, 1fr);
+   grid-template-columns: repeat(8, 98px);   /* 8 × 98 + 6 = 790px */
    align-items: stretch;
-   background: var(--rojo);        /* todo es rojo salvo la franja blanca de los bloques pares */
+   background: var(--rojo);
    padding: 0 3px;
 }
 
 .bloque{
    display: grid;
    grid-template-columns: repeat(3, var(--cell));
-   justify-content: center;        /* las 3 casillas pegadas y centradas en su columna */
+   justify-content: center;
    align-items: center;
-   column-gap: 4px;
+   column-gap: var(--gap);
    background: transparent;
 }
 
-.bloque{ column-gap: var(--gap); }
-
-
-/* Blanco SOLO detrás de las casillas (+ margen), centrado en el bloque */
+/* Franja blanca detrás del trío en los bloques pares */
 .bloque:nth-child(even){
-   background: linear-gradient(#fff, #fff) center / calc(var(--trio)) 100% no-repeat;
+   background: linear-gradient(#fff, #fff) center / calc(var(--trio) - 2px) 100% no-repeat;
 }
-
-.barra{ width: calc(var(--trio) + var(--margen) * 2); }
 
 /* Casillas */
 .c{
@@ -208,30 +202,15 @@ body{
    align-items: center;
    justify-content: center;
    width: var(--cell);
-   height: 29px;
+   height: var(--alto-c);
    background: #fff;
    border: 1px solid var(--rojo);
    color: var(--rojo);
    font-size: 20px;
    line-height: 1;
 }
-.c1c{
-   box-sizing: border-box;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   width: var(--cell);
-   height: 29px;
-   background: #fff;
-   border-bottom: 1px solid var(--rojo);
-   border-right: 1px solid var(--rojo);
-   color: var(--rojo);
-   font-size: 20px;
-   line-height: 1;
-}
 
-
-/* Separadores de grupo (encima de 1, 5, 9, 12 y debajo del 14) */
+/* Separadores de grupo (encima de 1, 5, 9, 12 y debajo del 4, 8, 11, 14) */
 .rows.inicio > .prono::before,
 .rows.fin    > .prono::after{
    content: "";
@@ -242,109 +221,164 @@ body{
    background: var(--rojo);
    pointer-events: none;
 }
-.rows.inicio > .prono::before{ top: 0; height: calc(var(--sep) + 1px); }
-.rows.fin    > .prono::after { bottom: 0; height: calc(var(--sep) + 1px); }
+.rows.inicio > .prono::before{ top: 0; }
+.rows.fin    > .prono::after { bottom: 0; }
 
 /* ===== COMBINACIONES ===== */
-.combi{
+.combi-l{
+   box-sizing: border-box;
+   width: var(--comb-w);
+   margin-left: 40px;
    display: grid;
    grid-template-columns: 1fr 1fr;
    align-items: center;
    justify-items: center;
-   margin-left: 40px;
+   border-left: 1px solid var(--rojo);
+}
+.combi-r{
+   border-right: 1px solid var(--rojo);
+}
+.sr{
+   align-self: stretch;
+   justify-self: stretch;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-left: 1px solid var(--rojo);
+   color: var(--rojo);
+   font-size: 11px;
+   text-align: center;
+   line-height: 1.1;
+}
+.combi .c{
+   width: 22px;
+   height: 27px;
+   font-size: 18px;
+}
+
+/* Celda TRIPLES: su borde inferior forma el escalón de la L */
+.triples{
+   align-self: stretch;
+   justify-self: stretch;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-bottom: 1px solid var(--rojo);
+   color: var(--rojo);
+   font-size: 11px;
+   text-align: center;
+   line-height: 1.1;
+}
+
+/* Fila del pleno: texto DOBLES y cierre inferior del recuadro */
+.combi-l.cierre{
+   border-bottom: 1px solid var(--rojo);
+   color: var(--rojo);
+   font-size: 11px;
+   text-align: center;
+   line-height: 1.1;
 }
 
 /* ===== PLENO AL 15 ===== */
-.rows.pleno > *{ height: 39px; }
+.rows.pleno > *{ height: var(--fila); }
 
-.pleno-izq {
-   position: relative;        /* Permite posicionar elementos respecto a esta caja */
+.pleno-izq{
+   position: relative;
    display: flex;
-   align-items: center;       /* Centra verticalmente el título */
-   justify-content: flex-end; /* Empuja el título "PLENO AL 15" hacia la derecha */
-   width: 300px;              /* El ancho fijo de tu primera columna */
-   height: 39px;
-   padding-right: 15px;       /* Margen antes de que empiecen los puntos del equipo */
+   align-items: center;
+   justify-content: space-between;
    box-sizing: border-box;
+   padding-right: 12px;
 }
-main.boleto-body .rows.pleno .pleno-izq span.pleno-titulo { 
-   color: var(--rojo) !important; 
-   font-size: 22px !important; /* <--- Cambia este número para probar (ej: 22px o 24px) */
-   font-weight: 400; !important;
-   white-space: nowrap !important;
-   display: inline-block !important;
+.pleno-titulo{
+   color: var(--rojo);
+   font-size: 22px;
+   font-weight: 400;
+   white-space: nowrap;
 }
 
-/* Cuadrado negro de la esquina izquierda */
+/* Cuadrado negro izquierdo */
 .pleno-izq::before{
    content: "";
    position: absolute;
-   left: -16px;
-   top: 50%;
+   left: -22px;
+   top: 90%;
    transform: translateY(-50%);
    width: 26px;
-   height: 26px;
+   height: 29px;
    background: #222;
    border: 1px solid var(--rojo);
-   box-shadow: inset 0 0 0 3px #ffffff; 
+   box-shadow: inset 0 0 0 3px #fff;
 }
 
-/* .bienmal{
+/* BIEN / MAL en línea */
+.bienmal{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 10px;
+   margin-left: 12px;
+   color: var(--azul);
+   font-size: 15px;
+   text-transform: uppercase;
+}
+.bienmal-fila{
    display: flex;
    align-items: center;
    gap: 4px;
-   margin-left: 20px;
-   color: var(--azul);
-   font-size: 12px;
-   text-transform: uppercase;
 }
+.bienmal-fila.down{transform: translateY(30px)}
+
 .bienmal .c{
-   width: 22px;
-   height: 26px;
-   font-size: 18px;
+   width: var(--cell);
+   height: var(--alto-c);
+   font-size: 20px;
    color: var(--azul);
    border-color: var(--azul);
 }
-.bienmal .c.mal{ transform: rotate(10deg); } */
+.bienmal .c.mal{ 
+   justify-content: flex-start;
+   padding-left: 18px;
+}
 
-
-.bienmal {
+/* Equipos: cada uno ocupa 4 columnas de pronósticos (4 × 98px) */
+.pleno-centro{
+   display: grid;
+   grid-template-columns: repeat(2, 392px);
+   align-items: center;
+   padding: 0 3px;
+}
+.pleno-equipo{
    display: flex;
-   flex-direction: column;    /* CAMBIO: Organiza los elementos hacia abajo (en columna) */
-   align-items: flex-start;   /* Alinea las filas a la izquierda */
-   gap: 6px;                  /* Espacio vertical entre la fila de BIEN y la de MAL */
-   margin-left: 10px;         /* Reducido un poco para dar más espacio al título de al lado */
+   align-items: center;
+   gap: 4px;
+   box-sizing: border-box;
+   padding-right: 6px;
    color: var(--azul);
-   font-size: 11px;           /* Un pelín más pequeña para que encaje perfectamente */
+   font-size: 18px;
    text-transform: uppercase;
+   white-space: nowrap;
+   min-width: 0;
+}
+.pleno-equipo .dots{
+   flex: 1;
+   overflow: hidden;
+   white-space: nowrap;
+   margin: 0 4px;
+}
+.pleno-equipo .dots::after{
+   content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+   font-size: 22px;
+   letter-spacing: 2px;
+   line-height: 1;
+}
+.pleno-equipo .c{
+   flex: none;
+   width: var(--cell);
+   height: 27px;
+   font-size: 18px;
 }
 
-/* NUEVO: Clase para que el texto y su casilla se alineen de lado a lado en cada piso */
-.bienmal-fila {
-   display: flex;
-   align-items: center;
-   gap: 6px;                  /* Espacio horizontal entre la palabra y su casilla */
-}
-
-/* Mantenemos tus estilos base de las casillas */
-.bienmal .c {
-   width: 22px;
-   height: 24px;
-   font-size: 16px;
-   color: var(--azul);
-   border: 1px solid var(--azul);
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-}
-
-/* Mantenemos tu rotación para la casilla de MAL */
-.bienmal .c.mal { 
-   transform: rotate(10deg); 
-}
-
-
-.pleno-equipo .c{ width: 22px; height: 27px; font-size: 18px; }
 
 /* ===== BLOQUES ===== */
 .rows.bloques > *{ height: 30px; align-self: center; }
@@ -353,21 +387,20 @@ main.boleto-body .rows.pleno .pleno-izq span.pleno-titulo {
    display: flex;
    align-items: center;
    justify-content: flex-end;
-   padding-right: 8px;
+   padding-right: 12px;
    color: var(--azul);
    font-size: 22px;
    text-transform: uppercase;
 }
-
 .barras{
    display: grid;
    grid-template-columns: repeat(8, 98px);   /* mismas columnas que .prono */
-   padding: 0 3px;                           /* mismo padding que .prono */
+   padding: 0 3px;
 }
 .barra{
    justify-self: center;
-   width: var(--trio);                       /* igual que el trío de casillas */
-   height: 24px;
+   width: var(--trio);
+   height: 26px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -379,96 +412,16 @@ main.boleto-body .rows.pleno .pleno-izq span.pleno-titulo {
    letter-spacing: 1px;
 }
 
-/* Cuadrado negro de la esquina derecha */
+/* Cuadrado negro derecho */
 .bloques-der{ position: relative; }
 .bloques-der::after{
    content: "";
    position: absolute;
-   right: -10px;
-   top: -26px;
+   right: 0;
+   top: -22px;
    width: 26px;
-   height: 26px;
+   height: 29px;
    background: #222;
    border: 1px solid var(--rojo);
-   box-shadow: inset 0 0 0 3px #ffffff; 
+   box-shadow: inset 0 0 0 3px #fff;
 }
-
-.rows-pleno-container {
-   grid-column: 1 / -1; /* Rompe las 3 columnas principales y ocupa todo el ancho */
-   display: grid;
-   /* Repetimos exactamente el reparto de anchos del boleto general para que encaje */
-   grid-template-columns: 300px 790px 125px; 
-   align-items: center;
-   height: 39px;
-   border-bottom: 3px solid var(--rojo); /* Línea roja que separa el pleno de los bloques */
-}
-.pleno-izq {
-   display: flex;
-   align-items: center;
-   padding-left: 10px;
-}
-.pleno-titulo { 
-   color: var(--rojo); 
-   font-size: 18px; 
-   font-weight: bold;
-   white-space: nowrap; 
-}
-.pleno-centro {
-   display: grid;
-   /* Dividimos el espacio en dos partes iguales (una para cada equipo) */
-   grid-template-columns: 1fr 1fr; 
-   column-gap: 30px;
-   padding: 0 3px; /* Mismo padding lateral que usas en .prono para que se alineen los puntos */
-}
-
-/* Ajuste de cada equipo individual */
-.pleno-equipo {
-   display: flex;
-   align-items: center;
-   color: var(--azul);
-   font-size: 18px;
-   text-transform: uppercase;
-}
-
-.pleno-equipo .dots {
-   flex: 1;
-   overflow: hidden;
-   white-space: nowrap;
-   margin: 0 6px;
-   color: var(--azul);
-}
-.pleno-equipo .dots::after {
-   content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
-   font-size: 22px;
-   letter-spacing: 2px;
-}
-
-/* Contenedor interno de las 4 casillas del pleno */
-.casillas-pleno {
-   display: flex;
-   gap: 4px; /* Separación idéntica a tus casillas superiores */
-}
-
-.casillas-pleno .c {
-   width: var(--cell);
-   height: var(--alto-c);
-   font-size: 18px;
-   color: var(--rojo);
-   border: 1px solid var(--rojo);
-}
-
-/* Columna Derecha: Texto e indicadores */
-.pleno-der {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: var(--rojo);
-   font-size: 11px;
-   text-align: center;
-   line-height: 1.1;
-}
-
-
-
-.boleto-body{ grid-auto-rows: var(--fila); }
-.c{ height: var(--alto-c); }
