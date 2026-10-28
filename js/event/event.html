@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <!-- EVENTOS ON: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent -->
+    <script>
+        function loadPage(){
+            console.log("Página cargada");
+        }
+        function btnClk(){
+            console.log("Botón clicado");
+        }
+         function pClk(){
+            console.log("Párrafo clicado");
+        }
+        function pOver(){
+            console.log("Ratón por encima");
+        }
+        function pressed(e){
+            console.log("Tecla presionada: ",e.key);
+        }
+        function btnEvent(e){
+            console.log(e.target);
+        }
+        function change(){
+            console.log("Cambio detectado");
+        }
+        function writing(){
+            console.log("Escribiendo");
+        }
+    </script>
+</head>
+<body onload="loadPage()">
+    <nav><a href="./.."> Volver atras</a></nav>
+    <button onclick="btnClk()">Click me!</button>
+    <!-- Tambien puedo ponerlo en texto -->
+    <p style="border: 1px solid #045c5c" onclick="pClk()">Hey!</p> 
+    <p style="border: 1px solid #c59bd8" onmouseover="pOver()">Mouse Over!</p> 
+    <input onkeypress="pressed(event)">
+    <button id="idBoton" data-id="info" onclick="btnEvent(event)">Check event!</button>
+    <input onchange="change()" oninput="writing()">
+
+</body>
+</html>

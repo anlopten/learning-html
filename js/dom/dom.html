@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificación del árbol DOM</title>
+    <script>
+        function addTask(){
+            let input = document.getElementById("inputBox");
+            console.log(input.value);
+            let li = document.createElement("li")
+            li.innerHTML=input.value
+            document.getElementById("task").appendChild(li)
+            input.value='';
+        }
+
+        //***** ESTO BORRA EL BODY PORQUE EL PARENT ES EL BODY 
+        function deleteMe(e){
+            console.log(e.parentNode);
+            e.parentNode.remove();
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+    <input name="task" type="text" id="inputBox"> 
+    <button onclick="addTask()">Añadir tarea</button>
+    <ul id="task">
+
+    </ul>
+    <button id="deleteBtn" onclick="deleteMe(this)">Hago magia y desaparezco para siempre</button>
+    <script>
+        
+    </script>
+
+</body>
+</html>

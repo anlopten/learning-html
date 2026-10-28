@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+    <script>
+        let date= new Date(); //devuelve la fecha + hora actual
+        console.log(date);
+        let customDate= new Date("2003-05-29"); //guardamos una fecha en concreto, el GMT+X cambia en funcion de la epoca
+        console.log(customDate);
+        let customDateAndHour= new Date(1994,4,1,5,19,40); // los meses cuando separados por , van de 0 a 11 
+        console.log(customDateAndHour);
+        console.log(customDateAndHour.getDay()); //devuelve dia de la semana
+        console.log(customDateAndHour.getDate());
+        console.log(customDateAndHour.getFullYear());
+        console.log(customDateAndHour.getHours());
+        console.log(customDateAndHour.toLocaleDateString());
+    </script>
+</head>
+<body>
+    <nav><a href="./.."> Volver atras</a></nav>
+    <script>
+        
+    </script>
+
+</body>
+</html>
