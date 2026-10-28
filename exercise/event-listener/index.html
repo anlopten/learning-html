@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <script>
+         function addTask(){
+            let input = document.getElementById("inputBox");
+            console.log(input.value);
+            let liVar = document.createElement("li");
+            liVar.innerHTML = input.value;
+            let buttonVar = document.createElement("button"); //añade un boton a cada elemento de la lista
+            buttonVar.innerText="Borrar";
+            buttonVar.addEventListener("click", (btn) => { 
+              //  console.log(btn.target.parentNode); imprime el parentNode (li)
+              btn.target.parentNode.remove();
+            })
+           
+            liVar.appendChild(buttonVar); 
+            document.getElementById("task").appendChild(liVar); //Añade a la lista
+            input.value = ""; //en la box de input hace que salga vacia
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="../../js/index.html"> Volver atras</a></nav>
+    <input name="task" type="text" id="inputBox"> 
+    <button onclick="addTask()">Añadir tarea</button>
+    <ul id="task">
+
+    </ul>
+    <script>
+        
+    </script>
+
+</body>
+</html>
