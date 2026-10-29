@@ -4,6 +4,7 @@
     --fondo-tarjeta: #ffffff;
     --border: #e2e8f0;
     --border-soft: #e2efff;
+    --violet: #dbb2db;
 }
 /* RESET STYLES */
 *{
@@ -19,6 +20,7 @@ body{
     justify-content: center;
     align-items: flex-start;
     padding: 60px 20px;
+    font-family: "Inter", sans-serif;
 }
 
 /* Tarjeta Contenedora */
@@ -63,6 +65,19 @@ header{
     padding: 6px;
     border: 1px solid var(--border);
     cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap:4px;
+    transition: background-color 0.6s, transform 0.1s;
+}
+.btn-submit:hover{
+    background-color: var(--violet);
+}
+.btn-submit:active{
+    transform: scale(0.9);
 }
 
 /* Lista tareas */

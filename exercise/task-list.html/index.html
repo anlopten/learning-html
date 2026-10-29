@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tareas</title>
+    <!-- fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- // Link a estilos CSS -->
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -18,16 +22,16 @@
         <!-- AGREGAR A LA LISTA -->
         <div class="input-container"> 
             <input type="text" id="input-id" placeholder="Escribe tu nueva tarea" autocomplete="off">
-            <button class="btn-submit"> <span>+</span>Agregar</button>
+            <button class="btn-submit" id="btn-add" onclick="addTask()"> <span>+</span>Agregar</button>
         </div>
         <!-- LISTA -->
-        <ul class="task-list"> 
+        <ul class="task-list" id="task-list"> 
             <li class="task-item">
                 <div class="task-container">
                     <button class="btn-check">✓</button>
                     <span class="task-name">Tarea pendiente</span>
                 </div>
-                    <butto class="btn-delete">🗑️</button>
+                    <button class="btn-delete">🗑️</button>
 
             </li>
         </ul>
