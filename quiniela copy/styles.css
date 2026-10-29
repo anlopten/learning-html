@@ -39,7 +39,7 @@ body{
    background: var(--rojo);
 }
 .borde-izq{ left: -20px; }
-.borde-der{ right: 0; }
+.borde-der{ right: -30px; }
 
 /* ===== HEADER ===== */
 .boleto-header{
@@ -121,9 +121,11 @@ body{
 .cab-comb{
    text-align: center;
    color: var(--rojo);
-   font-size: 15px;
-   margin-left: 40px;
-   letter-spacing: 0.5px;
+   font-size: 14px;
+   margin-left: 20px;
+   margin-right: 0px;
+   letter-spacing: 0px;
+   font-weight: 430;
    /* padding: 2px 8px; */
    border: 1px solid var(--rojo);
    display: flex;
@@ -225,16 +227,17 @@ body{
 .rows.fin    > .prono::after { bottom: 0; }
 
 /* ===== COMBINACIONES ===== */
-.combi-l{
+   .combi-l {
    box-sizing: border-box;
    width: var(--comb-w);
-   margin-left: 40px;
+   margin-left: 20px;
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 50% 50%; /* Forzamos a que la primera columna mida lo mismo que la casilla .c */
    align-items: center;
    justify-items: center;
    border-left: 1px solid var(--rojo);
 }
+
 .combi-r{
    border-right: 1px solid var(--rojo);
 }
@@ -257,10 +260,11 @@ body{
 }
 
 /* Celda TRIPLES: su borde inferior forma el escalón de la L */
-.triples{
+.triples {
    align-self: stretch;
    justify-self: stretch;
    display: flex;
+   flex-direction: column; /* Alinea la flecha arriba y el texto abajo */
    align-items: center;
    justify-content: center;
    border-bottom: 1px solid var(--rojo);
@@ -268,7 +272,14 @@ body{
    font-size: 11px;
    text-align: center;
    line-height: 1.1;
+   letter-spacing: 0px;
+   box-sizing: border-box; /* Evita que el borde sume altura extra */
 }
+.flecha{
+   font-size: 15px;
+   display: inline-block;
+}
+
 
 /* Fila del pleno: texto DOBLES y cierre inferior del recuadro */
 .combi-l.cierre{
